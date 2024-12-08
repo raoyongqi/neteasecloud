@@ -1,0 +1,25 @@
+appId: com.example.netcloud
+productName: NetCloud
+copyright: "Copyright © 2024 NetCloud Inc."
+directories:
+  output: dist
+  buildResources: build
+
+files:
+  - "dist/**/*"
+  - "src/**/*"
+  - "node_modules/**/*"
+
+extraResources:
+  - from: "src/renderer/assets/"
+    to: "assets/"
+
+
+
+    
+windows:
+  target:
+    - nsis
+
+  copyright: "Copyright © 2024 NetCloud Inc."
+  

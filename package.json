@@ -1,0 +1,26 @@
+{
+  "name": "netcloud",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "tsc && electron .",
+    "dev": "tsc --watch",
+    "build": "tsc && vite build --config ./src/renderer/vite.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/electron": "^1.4.38",
+    "@types/node": "^22.10.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3"
+  },
+  "dependencies": {
+    "NeteaseCloudMusicApi": "^4.25.0"
+  }
+}
