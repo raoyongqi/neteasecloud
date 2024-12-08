@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "dist/main.js",
   "scripts": {
-    "start": "tsc && electron .",
+    "start": " cross-env NODE_ENV=development electron .",
     "dev": "tsc --watch",
-    "build": "tsc && vite build --config ./src/renderer/vite.config.js"
+    "build": "cross-env NODE_ENV=development tsc  && vite build --config ./src/renderer/vite.config.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,8 @@
     "vite": "^6.0.3"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
+    "electron-devtools-installer": "^3.2.0",
     "NeteaseCloudMusicApi": "^4.25.0"
   }
 }

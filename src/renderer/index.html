@@ -8,6 +8,14 @@
 <body>
   <h1>欢迎使用 Electron</h1>
   <p>这是一个简单的桌面应用程序。</p>
-  <script src="renderer.js"></script>
+
+  <!-- 文件上传框 -->
+  <input type="file" id="file-input" accept=".txt" />
+  <button id="upload-button">上传 Cookie</button>
+
+  <p>Cookie 内容:</p>
+  <pre id="cookie-display">未选择文件</pre> <!-- 显示 cookie 内容 -->
+
+  <script type="module" src="renderer.js"></script>
 </body>
 </html>

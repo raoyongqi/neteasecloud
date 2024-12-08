@@ -1,5 +1,9 @@
-import Music from 'NeteaseCloudMusicApi';
 import { app, BrowserWindow } from 'electron';
+import installExtension, {
+  REACT_DEVELOPER_TOOLS,
+  REDUX_DEVTOOLS,
+} from 'electron-devtools-installer';
+
 
 async function main() {
   await app.whenReady();
@@ -29,26 +33,24 @@ async function main() {
     app.quit();
     return;
   }
-
-  // 加载主页面内容
-  await mainWindow.loadFile('./dist/renderer/index.html', {
-    hash: '#/main',
-  });
-  
-  // 仅在需要调试生产环境时打开 DevTools
-  if (process.env.DEBUG_PROD === 'true') {
-    mainWindow.once('show', () => mainWindow.webContents.openDevTools());
-  }
-
   // 事件注册
   mainWindow.once('ready-to-show', () => mainWindow.show());
 
+
+  if (process.env.NODE_ENV === 'development') {
+    await installExtension([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS]);
+    mainWindow.once('show', () => mainWindow.webContents.openDevTools()); 
+  }
+
+
+  await mainWindow.loadFile('./dist/renderer/index.html');
   app.on('browser-window-created', (ev, window) => {
     window.removeMenu();
 
     if (process.env.NODE_ENV === 'development') {
       window.once('show', () => window.webContents.openDevTools());
     }
+  
   });
 
   app.on('window-all-closed', () => app.quit());
