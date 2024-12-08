@@ -12,7 +12,8 @@
     },
     "include": [
       "src/**/*.ts"
-    ],
+, "src/renderer/vite.config.js" ,
+"src/renderer/**/*.d.ts"   ],
     "exclude": [
       "node_modules"
     ]

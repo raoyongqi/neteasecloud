@@ -3,7 +3,7 @@ import installExtension, {
   REACT_DEVELOPER_TOOLS,
   REDUX_DEVTOOLS,
 } from 'electron-devtools-installer';
-
+import { initBridge } from './public/bridge';  // 引入 bridge.ts 中的 initBridge 函数
 
 async function main() {
   await app.whenReady();
@@ -33,6 +33,8 @@ async function main() {
     app.quit();
     return;
   }
+
+  initBridge();  // 调用 bridge.ts 中的 initBridge 函数
   // 事件注册
   mainWindow.once('ready-to-show', () => mainWindow.show());
 
